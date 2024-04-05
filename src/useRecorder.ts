@@ -44,12 +44,12 @@ const useRecorder = (): Recorder => {
 
     mediaRecorderRef.current.ondataavailable = (e) => chunks.push(e.data)
     mediaRecorderRef.current.onstop = () => {
-      const blob = new Blob(chunks, { type: 'audio/mpeg' })
+      const blob = new Blob(chunks, { type: 'audio/wav' })
       setBlob(blob)
       setAudioURL(URL.createObjectURL(blob))
 
-      const audioFile = new File([blob], 'recorded_audio.mp3', {
-        type: 'audio/mpeg',
+      const audioFile = new File([blob], 'recorded_audio.wav', {
+        type: 'audio/wav',
       })
       setAudioFile(audioFile)
     }
